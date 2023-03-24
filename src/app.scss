@@ -1,0 +1,52 @@
+@import './scss/_variables.scss';
+:root {
+  font-family: $fontFamily;
+  line-height: 1.5;
+  font-weight: 400;
+
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+html {
+  font-size: 16px;
+}
+body {
+  margin: 0;
+  padding: $gridV $gridH;
+  font-size: $fontSize;
+}
+
+h1 {
+  font-size: $fontSizeH1;
+}
+button {
+  border: none;
+  font-size: $fontSize;
+  padding: $gridH $gridV * 2 ;
+  background: $primary;
+  color: $invertC;
+  border-radius: $gridV / 2;
+  transition: background-color .25s linear;
+  &:hover, &:focus {
+    cursor: pointer;
+    background: darken($primary, 10);
+  }
+}
+
+pre {
+  background-color: #f1f1f1;
+  padding: $gridH 0 ;
+}
