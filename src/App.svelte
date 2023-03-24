@@ -1,32 +1,105 @@
 <script>
-  import svelteLogo from './assets/svelte.svg'
-  import viteLogo from '/vite.svg'
   import Counter from './lib/Counter.svelte'
+  import {onMount} from "svelte";
+  import Logic from "./lib/Logic.svelte";
+
+  let page
+  onMount(() => {
+    onRouteChange();
+  });
+
+  const onRouteChange = () => {
+    const path = window.location.hash.slice(1);
+    if (path === '/') {
+      page = 'reactivity';
+    } else if (path === '/logic') {
+      page = 'logic';
+    } else {
+      window.location.hash = '/';
+    }
+  };
+
+  const counterData = {
+    numbersArray: [1, 2, 3, 4],
+    singleNumber: 0
+  }
+  const logicData = {
+    imageList: [{
+      name: 'Strand',
+      src: 'https://picsum.photos/id/12/100/100'
+    },
+      {
+        name: 'Wasserfall',
+        src: 'https://picsum.photos/id/15/100/100'
+      },
+      {
+        name: 'Weg',
+        src: 'https://picsum.photos/id/17/100/100'
+      }
+    ],
+    singleNumber: 0
+  }
 </script>
 
+<svelte:window on:hashchange={onRouteChange} />
+<nav class="mainnavi">
+  <ul class="mainnavi__list">
+    <li>
+      <a
+              class="nav__list-link"
+              class:nav__list-link--active={page === 'reactivity'}
+              href="#/">Props und Reactivity</a
+      >
+    </li>
+    <li>
+      <a
+              class="nav__list-link"
+              class:nav__list-link--active={page === '/ifelse'}
+              href="#/logic">Logik</a
+      >
+    </li>
+  </ul>
+</nav>
 <main>
-
-  <div class="card">
-    <Counter />
-  </div>
-
+  {#if page === 'reactivity'}
+    <Counter {...counterData} />
+  {:else if page === 'logic'}
+    <Logic {...logicData} />
+    {/if}
 </main>
 
 <style lang="scss">
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
+  .mainnavi {
+    position: sticky;
+    top: 0;
+    left: -16px;
+    background-color: #000;
+    &__list {
+      list-style: none;
+      display: flex;
+      a {
+        display: block;
+        font-size: 24px;
+        color: #FFF;
+        border-bottom: 1px dashed #FFF;
+        margin: 8px $gridH;
+      }
+    }
   }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
+  button {
+    margin: 4px $gridH;
+    padding: 0;
+
+    color: #000;
+    border-bottom: 1px dashed #000;
+    background: transparent;
+    border-radius: 0;
   }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
-  }
-  .read-the-docs {
-    color: #888;
-    font-family: $fontFamily
+  .ankerlist {
+    list-style: none;
+    display: flex;
+    li {
+      padding: calc($gridV / 2) 0;
+    }
   }
 </style>
