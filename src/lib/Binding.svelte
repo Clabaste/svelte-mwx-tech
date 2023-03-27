@@ -1,6 +1,9 @@
 <script>
 import Ankerlinks from "./navis/Ankerlinks.svelte";
 import InputField from './forms/InputField.svelte'
+
+let inputFieldBound
+let nativeFieldBound
 const radioBound = `
         <input
             id="hund"
@@ -24,10 +27,29 @@ let unboundCB = false
 
 let animalBound = "Hund"
 let animalUnBound = "Hund"
+
+let selectedValue=1
+let selectedValueUnBound=1
+const selectedValues = [
+    {
+        id: 1,
+        text: 'Eins'
+    },
+    {
+        id: 2,
+        text: 'Zwei'
+
+    },
+    {
+        id: 3,
+        text: 'Drei'
+
+    }
+]
 </script>
 
 
-<Ankerlinks ankers={['Eingabefelder und Textareas', 'Checkboxen', 'Radiobuttons']}></Ankerlinks>
+<Ankerlinks ankers={['Eingabefelder und Textareas', 'Checkboxen', 'Radiobuttons', 'Select']}></Ankerlinks>
 <h1>Binding</h1>
 <p>Bindings sind ein weites Feld, wer mehr wisen möchte schaut sich <a href="https://svelte.dev/tutorial/text-inputs">diese Beispiele</a> an</p>
 <p>Generelle gilt: Der Datenfluss geht in svelte vom oben nach unten (parent to child) –
@@ -125,3 +147,34 @@ let animalUnBound = "Hund"
         <pre>{radioUnBound}</pre>
     </div>
 </div>
+
+<h2 id="Select">Select</h2>
+<div class="flex">
+
+    <div>
+        <label for="sel1">Auswahlvalue ist {selectedValue}</label> <br>
+        <select id="sel1" bind:value={selectedValue}>
+            {#each selectedValues as {id, text} (id)}
+                <option value={id}>{text}</option>
+            {/each}
+        </select>
+    </div>
+    <div>
+        <label for="sel2">Auswahlvalue ist {selectedValueUnBound}</label> <br>
+        <select id="sel2" value={selectedValueUnBound}>
+            {#each selectedValues as {id, text} (id)}
+                <option value={id}>{text}</option>
+            {/each}
+        </select>
+    </div>
+</div>
+
+<h2>Elemente oder Komponenteninstanzen binden</h2>
+<p> (bind:this</p>
+<input type="text" bind:this={nativeFieldBound}>
+<button on:click={() => nativeFieldBound.focus()}>Fokussiere das Feld</button>
+<button on:click={() => nativeFieldBound.value = 'X/Y'}>Setze einen Wert "X/Y"</button>
+
+<InputField labelName="Komponente ist gebunden" bind:this={inputFieldBound}></InputField>
+<button on:click={() => inputFieldBound.focus()}>Fokussiere das Feld</button>
+<button on:click={() => inputFieldBound.value = 'X/Y'}>Setze einen Wert "X/Y"</button>

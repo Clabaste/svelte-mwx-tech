@@ -1,12 +1,15 @@
 <svelte:options accessors />
 
 <script>
+    let input
     import { fade, slide, fly, blur, scale, crossfade } from 'svelte/transition';
 
     import { v4 as uid } from 'uuid';
     import { createEventDispatcher } from 'svelte';
 
-
+    export function focus() {
+        input.focus();
+    }
 
     export let id = uid();
     export let dataValidate = undefined;
@@ -42,6 +45,13 @@
         });
     };
 
+    const handleOnFocus = (e) => {
+        dispatch('focus', {
+            target: e.target,
+            value: value
+        });
+    };
+
     $: disabled = disabledState
 </script>
 
@@ -54,6 +64,7 @@
     {/if}
 
     <input
+            bind:this={input}
             class="field__el"
             class:field__el--error={error && error.id && touched}
             class:field__el--loading={loading}
@@ -65,6 +76,7 @@
             on:change={() => (isChanged = true)}
             on:input={handleOnInput}
             on:blur={handleOnBlur}
+            on:focus={() => {handleOnFocus}}
             data-validate={dataValidate}
             data-validationMessage={dataValidationMessage}
     />
