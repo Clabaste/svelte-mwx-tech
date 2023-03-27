@@ -1,5 +1,5 @@
 <script>
-  import Counter from './lib/Counter.svelte'
+  import Counter from './lib/Reactivity.svelte'
   import {onMount} from "svelte";
   import Logic from "./lib/Logic.svelte";
   import Events from "./lib/Events.svelte";
