@@ -4,7 +4,8 @@
 
   function updateArray() {
     // Show: push won't work: Array.push adds an element to the end of the existing array while the spread syntax creates an entirely new array.
-    // numbers.push(numbers.length + 1);
+    /*numbersArray.push(numbersArray.length + 1);
+    console.info(numbersArray)*/
     numbersArray = [...numbersArray, numbersArray.length + 1];
   }
 
