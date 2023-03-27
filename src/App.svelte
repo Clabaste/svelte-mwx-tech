@@ -2,6 +2,8 @@
   import Counter from './lib/Counter.svelte'
   import {onMount} from "svelte";
   import Logic from "./lib/Logic.svelte";
+  import Events from "./lib/Events.svelte";
+  import Binding from "./lib/Binding.svelte";
 
   let page
   onMount(() => {
@@ -14,6 +16,11 @@
       page = 'reactivity';
     } else if (path === '/logic') {
       page = 'logic';
+    }  else if (path === '/events') {
+      page = 'events';
+    }
+    else if (path === '/binding') {
+      page = 'binding';
     } else {
       window.location.hash = '/';
     }
@@ -39,6 +46,10 @@
     ],
     singleNumber: 0
   }
+
+  function eventForward () {
+    alert('event Forwarded')
+  }
 </script>
 
 <svelte:window on:hashchange={onRouteChange} />
@@ -58,6 +69,20 @@
               href="#/logic">Logik</a
       >
     </li>
+    <li>
+      <a
+              class="nav__list-link"
+              class:nav__list-link--active={page === '/events'}
+              href="#/events">Events</a
+      >
+    </li>
+    <li>
+      <a
+              class="nav__list-link"
+              class:nav__list-link--active={page === '/binding'}
+              href="#/binding">Binding</a
+      >
+    </li>
   </ul>
 </nav>
 <main>
@@ -65,6 +90,10 @@
     <Counter {...counterData} />
   {:else if page === 'logic'}
     <Logic {...logicData} />
+  {:else if page === 'events'}
+    <Events  on:blur={eventForward}/>
+  {:else if page === 'binding'}
+    <Binding  on:blur={eventForward}/>
     {/if}
 </main>
 

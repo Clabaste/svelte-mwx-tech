@@ -10,6 +10,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
 }
 
 a {
@@ -27,6 +28,9 @@ body {
   margin: 0;
   padding: $gridV $gridH;
   font-size: $fontSize;
+  * {
+    box-sizing: border-box;
+  }
 }
 
 h1 {
@@ -56,7 +60,15 @@ pre {
 }
 
 .flex {
-  display: flex;gap: $gridV
+  display: flex;gap: $gridV;
+  > * {
+    flex: 1 1 0
+  }
+  &--fix {
+    > * {
+      flex: 0 0 0
+    }
+  }
 }
 
 

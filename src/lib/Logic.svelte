@@ -82,7 +82,7 @@
     <pre>{eachblock}</pre>
   <ul class="image-list">
     {#each imageList as { src, name }, i}
-      <li class="flex ">
+      <li class=" flex--fix ">
         <img src="{src}" alt="">
         {name} <Emoji name={name}></Emoji>
       </li>
@@ -93,7 +93,7 @@
     <pre>{eachblockKeyed}</pre>
   <ul class="image-list">
     {#each imageList as { src, name }, i (name)}
-      <li class="flex ">
+      <li class="flex flex--fix ">
         <img src="{src}" alt="">
         {name} <Emoji name={name}></Emoji>
       </li>
@@ -124,7 +124,7 @@ das richtige Icon an.</p>
     {:then list}
       <ul class="image-list">
         {#each list as { src, name }, i (name)}
-          <li class="flex ">
+          <li class="flex flex--fix ">
             <img src="{src}" alt="">
             {name}
           </li>
