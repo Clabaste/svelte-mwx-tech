@@ -18,6 +18,7 @@
   .ankerblock {
     border-top: 5px solid #FFF;
     position: sticky;
+    z-index: $navIndex;
     top: 50px;
     left: -16px;
     background-color: #000;

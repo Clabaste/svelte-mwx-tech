@@ -100,6 +100,7 @@
 <style lang="scss">
   .mainnavi {
     position: sticky;
+    z-index: $navIndex;
     top: 0;
     left: -16px;
     background-color: #000;

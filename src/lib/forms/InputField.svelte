@@ -1,12 +1,12 @@
 <svelte:options accessors />
 
 <script>
-    let input
+
     import { fade, slide, fly, blur, scale, crossfade } from 'svelte/transition';
 
     import { v4 as uid } from 'uuid';
     import { createEventDispatcher } from 'svelte';
-
+    let input
     export function focus() {
         input.focus();
     }

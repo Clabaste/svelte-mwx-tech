@@ -1,6 +1,7 @@
 <script>
 import Ankerlinks from "./navis/Ankerlinks.svelte";
 import InputField from './forms/InputField.svelte'
+import Radiobutton from './forms/Radiobutton.svelte'
 
 let inputFieldBound
 let nativeFieldBound
@@ -19,6 +20,16 @@ const radioUnBound = `
             on:change={() => {animalUnBound = 'Hund'}}
             checked={animalUnBound === 'Hund'}
             value="Hund">`
+
+const elBindCode = `   <input type="text" bind:this={nativeFieldBound}>`
+const compBindCode = `    let input
+    export function focus() {
+        input.focus();
+    }`
+const compParentCode = `    <InputField
+        labelName="Komponente ist gebunden"
+        bind:this={inputFieldBound}>
+    </InputField>`
 
 let inputValue = 'Fooo'
 let inputValueUnbound = 'Bar'
@@ -49,7 +60,7 @@ const selectedValues = [
 </script>
 
 
-<Ankerlinks ankers={['Eingabefelder und Textareas', 'Checkboxen', 'Radiobuttons', 'Select']}></Ankerlinks>
+<Ankerlinks ankers={['Eingabefelder und Textareas', 'Checkboxen', 'Radiobuttons', 'Select', 'Elemente oder Komponenteninstanzen binden']}></Ankerlinks>
 <h1>Binding</h1>
 <p>Bindings sind ein weites Feld, wer mehr wisen möchte schaut sich <a href="https://svelte.dev/tutorial/text-inputs">diese Beispiele</a> an</p>
 <p>Generelle gilt: Der Datenfluss geht in svelte vom oben nach unten (parent to child) –
@@ -98,28 +109,28 @@ const selectedValues = [
 <div class="flex flex-jus">
     <div>
         Das gewählte Tier ist: {animalBound}
-    <div>
-        <label for="hund">
-            <input id="hund" type=radio name="tier2" bind:group={animalBound} value="Hund">
-            Hund
-        </label>
+        <div>
+            <label for="hund">
+                <input id="hund" type=radio name="tier2" bind:group={animalBound} value="Hund">
+                Hund
+            </label>
 
-    </div>
-    <div>
-        <label for="katze">
-            <input id="katze" type=radio name="tier2" bind:group={animalBound} value="Katze">
-            Katze
-        </label>
+        </div>
+        <div>
+            <label for="katze">
+                <input id="katze" type=radio name="tier2" bind:group={animalBound} value="Katze">
+                Katze
+            </label>
 
-    </div>
-    <div>
-        <label for="maus">
-            <input id="maus" type=radio name="tier2" bind:group={animalBound}  value="Maus">
-            Maus
-        </label>
+        </div>
+        <div>
+            <label for="maus">
+                <input id="maus" type=radio name="tier2" bind:group={animalBound}  value="Maus">
+                Maus
+            </label>
 
-    </div>
-      <pre>{radioBound}</pre>
+        </div>
+        <pre>{radioBound}</pre>
     </div>
     <div>
         Das gewählte Tier ist: {animalUnBound}
@@ -147,6 +158,63 @@ const selectedValues = [
         <pre>{radioUnBound}</pre>
     </div>
 </div>
+<h3>Beispiel mit Komponente</h3>
+<div class="flex flex-jus">
+    <div>
+        Das gewählte Tier ist: {animalBound}
+    <div>
+        <Radiobutton id="comp-hund" name="tier2" bind:group={animalBound} value="Hund" labelName="Hund">  </Radiobutton>
+    </div>
+    <div>
+        <Radiobutton id="comp-katze" name="tier2" bind:group={animalBound} value="Katze" labelName="Katze">  </Radiobutton>
+    </div>
+    <div>
+        <Radiobutton id="comp-maus" name="tier2" bind:group={animalBound} value="Maus" labelName="Maus">  </Radiobutton>
+
+
+    </div>
+    </div>
+    <div>
+        Das gewählte Tier ist: {animalUnBound}
+        <div>
+
+            <Radiobutton
+                id="compunBhund"
+                type=radio
+                name="tier"
+                on:change={() => {animalUnBound = 'Hund'}}
+                checked={animalUnBound === 'Hund'}
+                labelName="Hund"
+                value="Hund" />
+        </div>
+        <div>
+            <Radiobutton
+                    id="compunBkatze"
+                    type=radio
+                    name="tier"
+                    on:change={() => {animalUnBound = 'Katze'}}
+                    checked={animalUnBound === 'Katze'}
+                    labelName="Katze"
+                    value="Katze" />
+
+
+        </div>
+        <div>
+
+                <Radiobutton
+                        id="compunBmaus"
+                        type=radio
+                        name="tier"
+                        on:change={() => {animalUnBound = 'Maus'}}
+                        checked={animalUnBound === 'Maus'}
+                        labelName="Maus"
+                        value="Maus" />
+
+
+
+        </div>
+    </div>
+</div>
 
 <h2 id="Select">Select</h2>
 <div class="flex">
@@ -169,12 +237,27 @@ const selectedValues = [
     </div>
 </div>
 
-<h2>Elemente oder Komponenteninstanzen binden</h2>
-<p> (bind:this</p>
-<input type="text" bind:this={nativeFieldBound}>
-<button on:click={() => nativeFieldBound.focus()}>Fokussiere das Feld</button>
-<button on:click={() => nativeFieldBound.value = 'X/Y'}>Setze einen Wert "X/Y"</button>
+<h2 id="Elemente oder Komponenteninstanzen binden">Elemente oder Komponenteninstanzen binden</h2>
+<p>Mit bind:this kann auf das Element, bzw. die Komponente zugegriffen werden</p>
+<div class="flex">
+    <div>
+        <input type="text" bind:this={nativeFieldBound}><br>
+        <button on:click={() => nativeFieldBound.focus()}>Fokussiere das Feld</button>
+        <button on:click={() => nativeFieldBound.value = 'X/Y'}>Setze einen Wert "X/Y"</button>
+    </div>
+    <div>
+        <pre>{elBindCode}</pre>
+    </div>
+</div>
 
-<InputField labelName="Komponente ist gebunden" bind:this={inputFieldBound}></InputField>
-<button on:click={() => inputFieldBound.focus()}>Fokussiere das Feld</button>
-<button on:click={() => inputFieldBound.value = 'X/Y'}>Setze einen Wert "X/Y"</button>
+<div class="flex">
+
+    <div>
+        <InputField labelName="Komponente ist gebunden" bind:this={inputFieldBound}></InputField>
+        <button on:click={() => inputFieldBound.focus()}>Fokussiere das Feld</button>
+        <button on:click={() => inputFieldBound.value = 'X/Y'}>Setze einen Wert "X/Y"</button>
+    </div>
+    <div>
+        <pre> // Code in der Parent-Komponente<br>{compParentCode}</pre>
+        <pre> // Code in der Child-Komponente<br>{compBindCode}</pre></div>
+</div>
