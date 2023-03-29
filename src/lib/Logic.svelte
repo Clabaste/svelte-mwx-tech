@@ -56,11 +56,10 @@
   }
 
   let promise = getImageList();
-  let sss
 </script>
-<Ankerlinks ankers={['if', 'each', 'await']}></Ankerlinks>
+<Ankerlinks></Ankerlinks>
 <h1>Anweisungen</h1>
-<h2 id="if">if/else</h2>
+<h2 data-anker="if">if/else</h2>
 <p>In svelte können logische Anweisungen im HTML-Template ausgeführt werden:</p>
 <pre>{codeblock}</pre>
 
@@ -74,7 +73,7 @@
   Nummer zählt hoch ({singleNumber})
 </button>
 
-<h2 id="each">each</h2>
+<h2 data-anker="each">each</h2>
 <p>Auch die "each" Anweisung kommt ins Template, sehr praktisch kann man die einzelnen Objektitems dekonstruieren:</p>
 
 <div class="flex">
@@ -111,7 +110,7 @@ das richtige Icon an.</p>
 
 <button on:click={removeFirstItem}>Lösch den ersten Eintrag im Array</button>
 
-<h2 id="await">Promises</h2>
+<h2 data-anker="await">Promises</h2>
 
 <p>Etwas ungewohnt aber super praktisch, wenn man den #await Block im Template hat:</p>
 <div class="flex">

@@ -60,14 +60,14 @@ const selectedValues = [
 </script>
 
 
-<Ankerlinks ankers={['Eingabefelder und Textareas', 'Checkboxen', 'Radiobuttons', 'Select', 'Elemente oder Komponenteninstanzen binden']}></Ankerlinks>
+<Ankerlinks></Ankerlinks>
 <h1>Binding</h1>
 <p>Bindings sind ein weites Feld, wer mehr wisen möchte schaut sich <a href="https://svelte.dev/tutorial/text-inputs">diese Beispiele</a> an</p>
 <p>Generelle gilt: Der Datenfluss geht in svelte vom oben nach unten (parent to child) –
     diese Regel wird allerding für eine einfachere Benutzbarkeit an einigen Stellen gebrochen.</p>
 <p>Konkret gilt das vor allem für Formularelemente – hier kann man den Wert mit "bind:value" in beide Richtungen binden (doublebinding) </p>
 
-<h2 id="Eingabefelder und Textareas">Eingabefelder und Textareas</h2>
+<h2 data-anker="Eingabefelder und Textareas">Eingabefelder und Textareas</h2>
 <div class="flex">
     <div>
 
@@ -78,7 +78,7 @@ const selectedValues = [
     </div>
 </div>
 
-<h2 id="Checkboxen">Checkboxen</h2>
+<h2 data-anker="Checkboxen">Checkboxen</h2>
 <div class="flex">
     <div>
         <label for="checkboxBound">
@@ -104,7 +104,7 @@ const selectedValues = [
     </div>
 </div>
 
-<h2 id="Radiobuttons">Radiobuttons</h2>
+<h2 data-anker="Radiobuttons">Radiobuttons</h2>
 <p>Achtung: Beide Beispiele funktionieren, die "bind:group" Methode ist nur kürzer</p>
 <div class="flex flex-jus">
     <div>
@@ -163,7 +163,10 @@ const selectedValues = [
     <div>
         Das gewählte Tier ist: {animalBound}
     <div>
-        <Radiobutton id="comp-hund" name="tier2" bind:group={animalBound} value="Hund" labelName="Hund">  </Radiobutton>
+        <Radiobutton
+                id="comp-hund"
+                name="tier2"
+                bind:group={animalBound} value="Hund" labelName="Hund">  </Radiobutton>
     </div>
     <div>
         <Radiobutton id="comp-katze" name="tier2" bind:group={animalBound} value="Katze" labelName="Katze">  </Radiobutton>
@@ -180,20 +183,18 @@ const selectedValues = [
 
             <Radiobutton
                 id="compunBhund"
-                type=radio
                 name="tier"
                 on:change={() => {animalUnBound = 'Hund'}}
-                checked={animalUnBound === 'Hund'}
+                group={animalUnBound}
                 labelName="Hund"
                 value="Hund" />
         </div>
         <div>
             <Radiobutton
                     id="compunBkatze"
-                    type=radio
                     name="tier"
                     on:change={() => {animalUnBound = 'Katze'}}
-                    checked={animalUnBound === 'Katze'}
+                    group={animalUnBound}
                     labelName="Katze"
                     value="Katze" />
 
@@ -203,10 +204,9 @@ const selectedValues = [
 
                 <Radiobutton
                         id="compunBmaus"
-                        type=radio
                         name="tier"
                         on:change={() => {animalUnBound = 'Maus'}}
-                        checked={animalUnBound === 'Maus'}
+                        group={animalUnBound}
                         labelName="Maus"
                         value="Maus" />
 
@@ -216,7 +216,7 @@ const selectedValues = [
     </div>
 </div>
 
-<h2 id="Select">Select</h2>
+<h2 data-anker="Select">Select</h2>
 <div class="flex">
 
     <div>
@@ -237,7 +237,7 @@ const selectedValues = [
     </div>
 </div>
 
-<h2 id="Elemente oder Komponenteninstanzen binden">Elemente oder Komponenteninstanzen binden</h2>
+<h2 data-anker="Elemente oder Komponenteninstanzen binden">Elemente oder Komponenteninstanzen binden</h2>
 <p>Mit bind:this kann auf das Element, bzw. die Komponente zugegriffen werden</p>
 <div class="flex">
     <div>

@@ -34,9 +34,9 @@ function sayHello() {
 </script>
 
 
-<Ankerlinks ankers={['Einfache Events', 'Events aus Komponenten (dispatch)', 'Event forwarding']}></Ankerlinks>
+<Ankerlinks></Ankerlinks>
 <h1>Events</h1>
-<h2 id="Einfache Events">Events von HTML-Elementen</h2>
+<h2 data-anker="Einfache Events">Events von HTML-Elementen</h2>
 <p>Events werden mithilfe von "on:" plus dem gewünschten Event gesetzt</p>
 <pre>on:click</pre>
 <p>Es gibt verschiedene, nützliche Modifier, die mit einer Pipe definiert werden</p>
@@ -48,7 +48,7 @@ function sayHello() {
 <p>Event target muss das Element selbst sein:</p>
 <pre>on:click|self</pre>
 <p>Eine komplette Liste findet Ihr <a href="https://svelte.dev/tutorial/event-modifiers">hier</a></p>
-<h2 id="Events aus Komponenten (dispatch)">Events aus Komponenten (dispatch)</h2>
+<h2 data-anker="Events aus Komponenten (dispatch)">Events aus Komponenten (dispatch)</h2>
 <p>
     Oft benutzt man wiederverwendbare Komponententen; in diesen muss der originale Event als CustomEvent nach oben gereicht / dispatched werden.
     Der Wert ist dann im CustomEvent unter "detail" zu finden.
@@ -64,7 +64,7 @@ function sayHello() {
 
 </div>
 
-<h2 id="Event forwarding">Event forwarding</h2>
+<h2 data-anker="Event forwarding">Event forwarding</h2>
 <p>
     Vielleicht wollen wir eine Funtion ansprechen, die in einer Komponente liegt, die nicht der direkte Parten ist, zum Beispiel in
     der <code>&lt;App&gt;</code>

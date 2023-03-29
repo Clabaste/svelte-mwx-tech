@@ -3,12 +3,12 @@
 <script>
     import {createEventDispatcher} from "svelte";
     import { v4 as uid } from 'uuid';
+ export let name = ''
  export let id = uid()
  export let labelName = ''
- export let nameValue
+ export let nameValue = ''
  export let value
  export let group
-    export let checked
     const dispatch = createEventDispatcher();
     const handleOnChange = (e) => {
         dispatch('change', {
@@ -19,25 +19,14 @@
 </script>
 
 <div class="field">
-    {#if group}
-        <input
-                class="field__el"
-                id={id2}
-                type=radio
-                name={nameValue}
-                on:change={handleOnChange}
-                bind:group={group}
-                value={value}>
-        {:else }
-        <input
-                checked={checked}
-                class="field__el"
-                id={id}
-                type=radio
-                name={nameValue}
-                on:change={handleOnChange}
-                value={value}>
-    {/if}
+    <input
+            class="field__el"
+            id={id2}
+            type="radio"
+            name={nameValue}
+            on:change={handleOnChange}
+            bind:group={group}
+            value={value}>
 
     <slot name="label" />
     {#if !$$slots.label}

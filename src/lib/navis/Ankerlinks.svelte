@@ -1,7 +1,13 @@
 <script>
-    export let ankers = []
+    import {onDestroy, onMount} from "svelte";
+    let ankers = [];
+    onMount( () => {
+        ankers = [...document.querySelectorAll('[data-anker]')].map((anker) => anker.getAttribute("data-anker"));
+    })
+
+
     const scrollTo = (e) => {
-        document.getElementById(e.target.name).scrollIntoView({ behavior: "smooth" });
+        document.querySelector(`[data-anker="${e.target.name}"]`).scrollIntoView({ behavior: "smooth" });
     }
 </script>
 <div class="ankerblock">
