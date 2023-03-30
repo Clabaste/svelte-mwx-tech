@@ -42,8 +42,10 @@
       margin: 0;
       list-style: none;
       display: flex;
+      flex-wrap: wrap;
       li {
         padding: calc($gridV / 2) 0;
+        white-space: nowrap;
       }
     }
 </style>

@@ -137,9 +137,7 @@ das richtige Icon an.</p>
 <div style="height: 1000px"></div>
 
 <style lang="scss">
-  h2 {
-    scroll-margin-top: 100px;
-  }
+  
   .image-list {
     li {
       display: flex;

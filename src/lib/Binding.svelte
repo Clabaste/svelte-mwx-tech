@@ -1,7 +1,10 @@
 <script>
+// @ts-nocheck
+
 import Ankerlinks from "./navis/Ankerlinks.svelte";
 import InputField from './forms/InputField.svelte'
 import Radiobutton from './forms/Radiobutton.svelte'
+    import SlotComponent from "./atoms/SlotComponent.svelte";
 
 let inputFieldBound
 let nativeFieldBound
@@ -57,6 +60,10 @@ const selectedValues = [
 
     }
 ]
+
+const slotHover = () => {
+    alert('hovered')
+}
 </script>
 
 
@@ -237,7 +244,7 @@ const selectedValues = [
     </div>
 </div>
 
-<h2 data-anker="Elemente oder Komponenteninstanzen binden">Elemente oder Komponenteninstanzen binden</h2>
+<h2 data-anker="Elemente oder Komponenten">Elemente oder Komponenteninstanzen binden</h2>
 <p>Mit bind:this kann auf das Element, bzw. die Komponente zugegriffen werden</p>
 <div class="flex">
     <div>
@@ -261,3 +268,17 @@ const selectedValues = [
         <pre> // Code in der Parent-Komponente<br>{compParentCode}</pre>
         <pre> // Code in der Child-Komponente<br>{compBindCode}</pre></div>
 </div>
+<h2 data-anker="Slots">Slots</h2>
+<SlotComponent let:hovering={active}>
+    <h3 slot="headline" class:active>Headline</h3>
+    <p>Schubiduuuu, irgendein Content.. </p>
+</SlotComponent>
+
+<style lang="scss">
+    h3 {
+        &.active {
+            background-color: darkcyan;
+            color: #FFF
+        }
+    }
+</style>

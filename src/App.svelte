@@ -84,7 +84,7 @@
       <a
               class="nav__list-link"
               class:nav__list-link--active={page === '/binding'}
-              href="#/binding">Binding</a
+              href="#/binding">Binding and Slots</a
       >
     </li>
     <li>
