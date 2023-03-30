@@ -132,7 +132,6 @@
   button {
     margin: 4px $gridH;
     padding: 0;
-
     color: #000;
     border-bottom: 1px dashed #000;
     background: transparent;

@@ -268,6 +268,9 @@ const slotHover = () => {
         <pre> // Code in der Parent-Komponente<br>{compParentCode}</pre>
         <pre> // Code in der Child-Komponente<br>{compBindCode}</pre></div>
 </div>
+
+
+
 <h2 data-anker="Slots">Slots</h2>
 <SlotComponent let:hovering={active}>
     <h3 slot="headline" class:active>Headline</h3>
