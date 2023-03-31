@@ -110,6 +110,7 @@
     {/if}
 </main>
 
+
 <style lang="scss">
   .mainnavi {
     position: sticky;
