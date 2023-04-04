@@ -2,6 +2,7 @@
     
     import DataChild from "./atoms/DataChild.svelte";
     import DataChildContext from "./atoms/DataChildContext.svelte";
+    import DataStore from "./atoms/DataStore.svelte";
     import Ankerlinks from "./navis/Ankerlinks.svelte";
     const dataBlock1 = `    /* Parent */
     <DataChild {person}></DataChild>
@@ -91,3 +92,5 @@
     <p style="color: red">{error.message}</p>
 {/await}
 
+<h2 data-anker="Store">Stores</h2>
+<DataStore></DataStore>

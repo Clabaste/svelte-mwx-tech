@@ -1,5 +1,6 @@
 <script>
   import Counter from './lib/Reactivity.svelte'
+  import theme from './stores/theme.js'
   import {onMount} from "svelte";
   import Logic from "./lib/Logic.svelte";
   import Events from "./lib/Events.svelte";
@@ -55,8 +56,11 @@
     alert('event Forwarded')
   }
 </script>
-
+{$theme}
 <svelte:window on:hashchange={onRouteChange} />
+<svelte:head>
+  const 
+</svelte:head>
 <nav class="mainnavi">
   <ul class="mainnavi__list">
     <li>
