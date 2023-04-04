@@ -92,5 +92,6 @@
     <p style="color: red">{error.message}</p>
 {/await}
 
-<h2 data-anker="Store">Stores</h2>
+<h2 data-anker="Store">Daten kommen aus einem Store</h2>
 <DataStore></DataStore>
+<div style="height: 70vh"></div>

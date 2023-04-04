@@ -1,16 +1,18 @@
 import { writable } from 'svelte/store'
-
+const { set, subscribe, update } = writable([]);
 export function createDataStore() {
-    const { subscribe } = writable([])
+    
 
     return {
         subscribe,
+        set,
+        update,
 
-        init: async () => {
-            const res = await fetch('https://www.swapi.tech/api/people?page=1&limit=3');
+        init: async (url) => {
+            const res = await fetch(url);
             const {message, results, error} = await res.json();
-            console.info('meee', results)
             if (message==='ok') {
+                set(results)
                 return results;
             } else {
                 throw new Error(error);

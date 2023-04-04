@@ -6,6 +6,7 @@
   import Events from "./lib/Events.svelte";
   import Binding from "./lib/Binding.svelte";
   import Data from "./lib/Data.svelte";
+  import Stores from "./lib/Stores.svelte";
 
   let page
   onMount(() => {
@@ -26,6 +27,9 @@
     }
     else if (path === '/data') {
       page = 'data';
+    }
+    else if (path === '/stores') {
+      page = 'stores';
     } else {
       window.location.hash = '/';
     }
@@ -98,6 +102,14 @@
               href="#/data">Data</a
       >
     </li>
+
+    <li>
+      <a
+              class="nav__list-link"
+              class:nav__list-link--active={page === '/stores'}
+              href="#/stores">Stores</a
+      >
+    </li>
   </ul>
 </nav>
 <main>
@@ -111,6 +123,10 @@
     <Binding  on:blur={eventForward}/>
   {:else if page === 'data'}
     <Data  on:blur={eventForward}/>
+
+  {:else if page === 'stores'}
+  <Stores/>
+
     {/if}
 </main>
 
