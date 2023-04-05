@@ -7,6 +7,7 @@
   import Binding from "./lib/Binding.svelte";
   import Data from "./lib/Data.svelte";
   import Stores from "./lib/Stores.svelte";
+    import Directives from './lib/Directives.svelte';
 
   let page
   onMount(() => {
@@ -30,7 +31,11 @@
     }
     else if (path === '/stores') {
       page = 'stores';
-    } else {
+    } 
+    else if (path === '/directives') {
+      page = 'directives';
+    } 
+    else {
       window.location.hash = '/';
     }
   };
@@ -125,6 +130,22 @@
               class:nav__list-link--active={page === '/stores'}
               href="#/stores">Stores</a
       >
+
+    <li>
+      <a
+              class="nav__list-link"
+              class:nav__list-link--active={page === '/stores'}
+              href="#/stores">Stores</a
+      >
+    </li>
+
+
+    <li>
+      <a
+              class="nav__list-link"
+              class:nav__list-link--active={page === '/directives'}
+              href="#/stores">Directiven</a
+      >
     </li>
   </ul>
 </nav>
@@ -141,7 +162,7 @@
     <Data/>
 
   {:else if page === 'stores'}
-  <Stores/>
+  <Directives/>
 
     {/if}
 </main>
@@ -159,7 +180,7 @@
       display: flex;
       a {
         display: block;
-        font-size: 24px;
+        font-size: 20px;
         color: #FFF;
         border-bottom: 1px dashed #FFF;
         margin: 8px $gridH;
