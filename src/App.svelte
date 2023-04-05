@@ -113,7 +113,7 @@
       <a
               class="nav__list-link"
               class:nav__list-link--active={page === '/binding'}
-              href="#/binding">Binding and Slots</a
+              href="#/binding">Binding und Slots</a
       >
     </li>
     <li>
@@ -178,12 +178,15 @@
     &__list {
       list-style: none;
       display: flex;
+      justify-content: space-between;
+      padding: 8px $gridH;
       a {
         display: block;
         font-size: 20px;
         color: #FFF;
         border-bottom: 1px dashed #FFF;
-        margin: 8px $gridH;
+        
+
       }
     }
   }

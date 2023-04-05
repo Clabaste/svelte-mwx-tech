@@ -64,3 +64,35 @@
         background-color: #CCC;
     }
 </style>
+
+<h2 data-anker="Svelte eigene Elemente">Svelte eigene Elemente</h2>
+<p>
+    Svelte liefert einen ganzen Schwung an eigenen Elementen mit. 
+    Die sind eigenlich ganz gut im Tutorial vorgestellt:</p>
+
+    <ul>
+        <li><a href="https://svelte.dev/tutorial/svelte-self">svelte-self</a></li>
+        <li><a href="https://svelte.dev/tutorial/svelte-component">svelte-component</a> (Lässt sich gut für ein Routing verwenden)</li>
+        <li><a href="https://svelte.dev/tutorial/svelte-element">svelte-element</a>, um z.B. in einer Komponente ein Tag zu überschreiben</li>
+        <li>
+            <a href="https://svelte.dev/tutorial/svelte-window">svelte-window</a><br>
+            <a href="https://svelte.dev/tutorial/svelte-window-bindings">svelte-window-bindings</a>
+        </li>
+        <li><a href="https://svelte.dev/tutorial/svelte-document">svelte-document</a></li>
+        <li><a href="https://svelte.dev/tutorial/svelte-body">svelte-body</a></li>
+        <li><a href="https://svelte.dev/tutorial/svelte-head">svelte-head</a></li>
+        <li><a href="https://svelte.dev/tutorial/svelte-options">svelte-options</a></li>
+    </ul>
+
+    <h2 data-anker="Svelte eigene Tags">Svelte eigene Tags</h2>
+    <p>Es gibt einen Debug Tag</p>
+<!--     {@debug animalBound} -->
+    <p>Man kann im Templatebereich eine Konsole ausgeben, wenn man möchte</p>
+    {(console.log(animalBound), '')}
+
+    <p>HTML als string mit "@html string"</p>
+    {#if animalBound}
+        {@const lala = '<p><strong>Test</strong></p>'}
+        <div>{@html lala}</div>
+    {/if}
+    
