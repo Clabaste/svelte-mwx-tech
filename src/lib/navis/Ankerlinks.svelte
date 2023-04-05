@@ -27,7 +27,7 @@
     z-index: $navIndex;
     top: 50px;
     left: -16px;
-    background-color: #000;
+    background-color: var(--ankerbg);
   }
     button {
         margin: 4px $gridH;

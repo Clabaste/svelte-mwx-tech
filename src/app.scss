@@ -28,6 +28,8 @@ body {
   margin: 0;
   padding: $gridV $gridH;
   font-size: $fontSize;
+  background-color: var(--background);
+  color: var(--color);
   * {
     box-sizing: border-box;
   }
@@ -53,6 +55,18 @@ button {
 pre {
   background-color: #f1f1f1;
   padding: $gridH 0 ;
+  color: #000;
+}
+hr {
+  border: none;
+  background-color: none;
+  height:200px;
+  &::before {
+    display: block;
+    content: '';
+    margin-top: 100px;
+    border-top: 2px dashed var(--color)
+  }
 }
 
 .alert {

@@ -22,7 +22,7 @@
 </pre>
 
 <h2>Reactivity</h2>
-<p>Eine Zahl <strong class="alert">({singleNumber})</strong> soll den Wert "4" nicht überschreiten</p>
+<p>Eine Zahl <strong class="alert">({singleNumber})</strong> soll den Wert "3" nicht überschreiten</p>
 
 
 <button on:click={() => {singleNumber++}}>
@@ -38,3 +38,5 @@
 <button on:click={updateArray}>
   Berechne die Summe aus dem Array
 </button>
+<h2>Weiterführende Links</h2>
+<a href="https://svelte.dev/tutorial/reactive-assignments">https://svelte.dev/tutorial/reactive-assignments</a>

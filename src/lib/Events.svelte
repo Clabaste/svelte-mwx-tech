@@ -12,6 +12,14 @@ const dispatchCode = `  const dispatch = createEventDispatcher();
     target: e.target,
     value: value
   };`
+  const dispatchCodeBlur = `  const dispatch = createEventDispatcher();
+  const handleOnBlur = (e) => {
+        dispatch('blur', {
+            target: e.target,
+            value: value
+        });
+    };
+`
 const forwardCodeApp = `function eventForward () {
     alert('event Forwarded')
   }
@@ -66,7 +74,7 @@ function sayHello() {
 
 <h2 data-anker="Event forwarding">Event forwarding</h2>
 <p>
-    Vielleicht wollen wir eine Funtion ansprechen, die in einer Komponente liegt, die nicht der direkte Parten ist, zum Beispiel in
+    Vielleicht wollen wir eine Funktion ansprechen, die in einer Komponente liegt, die nicht der direkte Parent ist, zum Beispiel in
     der <code>&lt;App&gt;</code>
 
 
@@ -94,8 +102,8 @@ function sayHello() {
 
     </div>
     <div>
-        InoutField.svelte
-        <div><pre>{dispatchCode}</pre></div>
+        InputField.svelte
+        <div><pre>{dispatchCodeBlur}</pre></div>
 
     </div>
 </div>

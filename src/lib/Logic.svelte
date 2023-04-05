@@ -13,7 +13,7 @@
   {#each imageList as { src, name }, i}
     <li class="flex ">
       <img src="{src}" alt="">
-        {name}
+        {name} <Emoji name={name}></Emoji>
       </li>
   {/each}
 </ul>`
@@ -21,7 +21,7 @@
   {#each imageList as { src, name }, i (name)}
     <li class="flex ">
       <img src="{src}" alt="">
-        {name}
+        {name} <Emoji name={name}></Emoji>
       </li>
   {/each}
 </ul>`
@@ -65,9 +65,9 @@
 
 <p>
   Die Variable "singleNumber" ist
-  {#if singleNumber < 3}kleiner als 3
-  {:else if singleNumber === 3}genauso groß wie 3
-  {:else }größer als 3{/if}
+  {#if singleNumber < 3}<strong> kleiner</strong> als 3
+  {:else if singleNumber === 3}<strong>genauso groß</strong> wie 3
+  {:else }<strong>größer</strong> als 3{/if}
 </p>
 <button on:click={() => {singleNumber++}}>
   Nummer zählt hoch ({singleNumber})
