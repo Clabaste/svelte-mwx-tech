@@ -131,20 +131,14 @@
               href="#/stores">Stores</a
       >
 
-    <li>
-      <a
-              class="nav__list-link"
-              class:nav__list-link--active={page === '/stores'}
-              href="#/stores">Stores</a
-      >
-    </li>
+    
 
 
     <li>
       <a
               class="nav__list-link"
               class:nav__list-link--active={page === '/directives'}
-              href="#/stores">Directiven</a
+              href="#/directives">Directiven und Specials</a
       >
     </li>
   </ul>
@@ -162,6 +156,9 @@
     <Data/>
 
   {:else if page === 'stores'}
+  <Stores/>
+
+  {:else if page === 'directives'}
   <Directives/>
 
     {/if}
