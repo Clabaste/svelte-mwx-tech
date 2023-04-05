@@ -26,10 +26,11 @@
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
 </script>
 <Ankerlinks></Ankerlinks>
+<h1>Stores</h1>
 <p>Mithilfe von Stores werden in der Regel Daten gespeichert, die über mehrere voneinander 
     unabhängige Komponenten oder Seiten benutzt werden werden.</p>
 <h2 data-anker="Writable Store">Writable Store</h2>
-<p>Writable Store lassen sich ändern.</p>
+<p>Wie der Name schon sagt, Writable Stores lassen sich von überall aus ändern.</p>
 
 <h3>Theme ist "{$theme}""</h3>
     <button on:click={switchTheme}>Switch Theme</button>

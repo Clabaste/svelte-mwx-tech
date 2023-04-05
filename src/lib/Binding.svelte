@@ -272,14 +272,14 @@ const slotHover = () => {
 
 
 <h2 data-anker="Slots">Slots</h2>
-<SlotComponent let:hovering={active}>
-    <h3 slot="headline" class:active>Headline</h3>
+<SlotComponent let:hovering={isHovered}>
+    <h3 slot="headline" class:hovered={isHovered}>Headline</h3>
     <p>Schubiduuuu, irgendein Content.. </p>
 </SlotComponent>
 
 <style lang="scss">
     h3 {
-        &.active {
+        &.hovered {
             background-color: darkcyan;
             color: #FFF
         }
