@@ -60,10 +60,26 @@
     alert('event Forwarded')
   }
 </script>
-{$theme}
+
 <svelte:window on:hashchange={onRouteChange} />
 <svelte:head>
-  const 
+  {#if $theme === 'dark'}
+		<style>
+			:root {
+				--background: #000;
+				--color: #fff;
+        --ankerbg: #716d6d
+			}
+		</style>
+	{:else}
+		<style>
+			:root {
+				--background: #FFF;
+				--color: #000;
+				--ankerbg: #000
+			}
+		</style>
+	{/if} 
 </svelte:head>
 <nav class="mainnavi">
   <ul class="mainnavi__list">
@@ -120,9 +136,9 @@
   {:else if page === 'events'}
     <Events  on:blur={eventForward}/>
   {:else if page === 'binding'}
-    <Binding  on:blur={eventForward}/>
+    <Binding/>
   {:else if page === 'data'}
-    <Data  on:blur={eventForward}/>
+    <Data/>
 
   {:else if page === 'stores'}
   <Stores/>
@@ -137,7 +153,7 @@
     z-index: $navIndex;
     top: 0;
     left: -16px;
-    background-color: #000;
+    background-color: var(--ankerbg);
     &__list {
       list-style: none;
       display: flex;
