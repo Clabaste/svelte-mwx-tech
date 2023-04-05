@@ -1,7 +1,6 @@
 <script>
 import Ankerlinks from "./navis/Ankerlinks.svelte";
 import InputField from './forms/InputField.svelte'
-import {createEventDispatcher} from "svelte";
 
 const dispatchCode = `  const dispatch = createEventDispatcher();
   const handleOnInput = (e) => {
@@ -29,16 +28,6 @@ const forwardCodeEvent = ` <InputField
     on:blur>
  </InputField>`
 
-
-
-
-/*const dispatch = createEventDispatcher();
-
-function sayHello() {
-    dispatch('message', {
-        text: 'Hello!'
-    });
-}*/
 </script>
 
 

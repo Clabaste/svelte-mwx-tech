@@ -1,6 +1,9 @@
 <script>
+// @ts-nocheck
+
   import Counter from './lib/Reactivity.svelte'
   import theme from './stores/theme.js'
+  
   import {onMount} from "svelte";
   import Logic from "./lib/Logic.svelte";
   import Events from "./lib/Events.svelte";
@@ -8,35 +11,26 @@
   import Data from "./lib/Data.svelte";
   import Stores from "./lib/Stores.svelte";
     import Directives from './lib/Directives.svelte';
+    import Start from './lib/Start.svelte'
 
-  let page
   onMount(() => {
     onRouteChange();
   });
 
+  
+  let page = window.location.hash.slice(1)
+  let pathComponent = Start
+  let pathData = {}
   const onRouteChange = () => {
-    const path = window.location.hash.slice(1);
-    if (path === '/') {
-      page = 'reactivity';
-    } else if (path === '/logic') {
-      page = 'logic';
-    }  else if (path === '/events') {
-      page = 'events';
-    }
-    else if (path === '/binding') {
-      page = 'binding';
-    }
-    else if (path === '/data') {
-      page = 'data';
-    }
-    else if (path === '/stores') {
-      page = 'stores';
-    } 
-    else if (path === '/directives') {
-      page = 'directives';
-    } 
-    else {
-      window.location.hash = '/';
+    page = window.location.hash.slice(1)
+    const selectedObj = routes.filter((route) => route.path === page)[0]
+    console.info('selectedObj ', selectedObj)
+    if(selectedObj) {
+      pathComponent = selectedObj.component
+      pathData = selectedObj.data
+    }else {
+      pathComponent = Start
+      pathData = {}
     }
   };
 
@@ -64,9 +58,49 @@
   function eventForward () {
     alert('event Forwarded')
   }
-</script>
 
+  const routes = [
+    {
+        path: '/props',
+        name: 'Props und Reactivity',
+        component: Counter,
+        data: counterData
+    },
+    {
+        path: '/logic',
+        name: 'Logik',
+        component: Logic,
+        data: logicData
+    },
+    {
+        path: '/binding',
+        name: 'Binding',
+        component: Binding
+    },
+    {
+        path: '/events',
+        name: 'Events',
+        component: Events
+    },
+    {
+        path: '/data',
+        name: 'Daten',
+        component: Data
+    },
+    {
+        path: '/stores',
+        name: 'Stores',
+        component: Stores
+    },
+    {
+        path: '/directives',
+        name: 'Direktiven und Specials',
+        component: Directives
+    },
+]
+</script>
 <svelte:window on:hashchange={onRouteChange} />
+
 <svelte:head>
   {#if $theme === 'dark'}
 		<style>
@@ -88,81 +122,26 @@
 </svelte:head>
 <nav class="mainnavi">
   <ul class="mainnavi__list">
-    <li>
-      <a
-              class="nav__list-link"
-              class:nav__list-link--active={page === 'reactivity'}
-              href="#/">Props und Reactivity</a
-      >
-    </li>
-    <li>
-      <a
-              class="nav__list-link"
-              class:nav__list-link--active={page === '/ifelse'}
-              href="#/logic">Logik</a
-      >
-    </li>
-    <li>
-      <a
-              class="nav__list-link"
-              class:nav__list-link--active={page === '/events'}
-              href="#/events">Events</a
-      >
-    </li>
-    <li>
-      <a
-              class="nav__list-link"
-              class:nav__list-link--active={page === '/binding'}
-              href="#/binding">Binding und Slots</a
-      >
-    </li>
-    <li>
-      <a
-              class="nav__list-link"
-              class:nav__list-link--active={page === '/data'}
-              href="#/data">Data</a
-      >
-    </li>
-
-    <li>
-      <a
-              class="nav__list-link"
-              class:nav__list-link--active={page === '/stores'}
-              href="#/stores">Stores</a
-      >
-
-    
-
-
-    <li>
-      <a
-              class="nav__list-link"
-              class:nav__list-link--active={page === '/directives'}
-              href="#/directives">Directiven und Specials</a
-      >
-    </li>
+    {#each routes as { path, name }, i}
+      <li >
+        <a
+                class="mainnavi__list-link"
+                class:mainnavi__list-link--active={page === path}
+                href={`#${path}`}>{name}
+        </a>
+      </li>
+    {/each} 
   </ul>
-</nav>
-<main>
-  {#if page === 'reactivity'}
-    <Counter {...counterData} />
-  {:else if page === 'logic'}
-    <Logic {...logicData} />
-  {:else if page === 'events'}
-    <Events  on:blur={eventForward}/>
-  {:else if page === 'binding'}
-    <Binding/>
-  {:else if page === 'data'}
-    <Data/>
+</nav> 
 
-  {:else if page === 'stores'}
-  <Stores/>
+{#if page === '/events'}
+    <svelte:component this={pathComponent}   on:blur={eventForward}/>
+  {:else }  
+    <svelte:component this={pathComponent} {...pathData}/>
+{/if}
 
-  {:else if page === 'directives'}
-  <Directives/>
 
-    {/if}
-</main>
+
 
 
 <style lang="scss">
@@ -176,8 +155,12 @@
       list-style: none;
       display: flex;
       justify-content: space-between;
-      padding: 8px $gridH;
-      a {
+      padding:0 $gridH;
+      li {
+        padding: 8px 0;
+      }
+    }
+    &__list-link {
         display: block;
         font-size: 20px;
         color: #FFF;
@@ -185,7 +168,6 @@
         
 
       }
-    }
   }
   button {
     margin: 4px $gridH;
