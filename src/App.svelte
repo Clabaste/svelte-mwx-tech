@@ -24,7 +24,6 @@
   const onRouteChange = () => {
     page = window.location.hash.slice(1)
     const selectedObj = routes.filter((route) => route.path === page)[0]
-    console.info('selectedObj ', selectedObj)
     if(selectedObj) {
       pathComponent = selectedObj.component
       pathData = selectedObj.data
@@ -62,7 +61,7 @@
   const routes = [
     {
         path: '/props',
-        name: 'Props und Reactivity',
+        name: 'Reactivity',
         component: Counter,
         data: counterData
     },
@@ -84,7 +83,7 @@
     },
     {
         path: '/data',
-        name: 'Daten',
+        name: 'Props und andere Daten',
         component: Data
     },
     {

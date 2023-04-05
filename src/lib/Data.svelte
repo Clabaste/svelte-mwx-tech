@@ -39,7 +39,6 @@
     async function getStarWarsData(url) {   
         const res = await fetch(url);
         const {message, results, error} = await res.json();
-        console.info('meee', results)
         if (message==='ok') {
         return results;
         } else {
@@ -52,15 +51,16 @@
 </script>
 <Ankerlinks></Ankerlinks>
 <h2 data-anker="Properties">Properties</h2>
-<p>Natürlich kann man auch in svelte mittels "Properties" Dateninformationen an die Childkomponente übermitteln</p>
+<p>Natürlich kann man wie in allen anderen bekannten Framework mittels "Properties" Daten und Informationen an die Childkomponente übermitteln</p>
+<p>Mehr Info hier im  <a href="https://svelte.dev/tutorial/declaring-props">Tutorial</a></p>
 {#await promise}
     <p>...waiting</p>
 {:then peoples}
     <div class="flex">
         <ul class="image-list">
-            {#each peoples as person, i (person.uid)}
+            {#each peoples as { person }, i (person.uid)}
                 <li>
-                    <DataChild {person}></DataChild>
+                    <DataChild {...person}></DataChild>
                 </li>
             {/each}
         </ul>

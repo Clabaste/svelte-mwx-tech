@@ -15,12 +15,6 @@
       singleNumber = 3
   }
 </script>
-<h1>Reactivity and Props</h1>
-<h2>Props aus der Parentdatei "App"</h2>
-<pre>
-  {JSON.stringify($$props, null, 2)}
-</pre>
-
 <h2>Reactivity</h2>
 <p>Eine Zahl <strong class="alert">({singleNumber})</strong> soll den Wert "3" nicht überschreiten</p>
 

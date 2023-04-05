@@ -3,7 +3,6 @@ import {time} from './time'
 export const endOfYear = derived(
 	time,
 	($time) => {
-		console.info(' ', $time.getFullYear())
 		const holiday = new Date(`${$time.getFullYear()}-12-31`);
 		// get total seconds between the times
 		let delta = Math.abs(holiday - $time) / 1000;
