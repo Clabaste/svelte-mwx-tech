@@ -2,7 +2,7 @@
     import {dataStore} from '../stores/data'
     import theme from '../stores/theme'
     import {time} from '../stores/time'
-    import {daysToHoliday} from '../stores/daysToHoliday'
+    import {endOfYear} from '../stores/endOfYear'
     import Ankerlinks from "./navis/Ankerlinks.svelte";
     import InputField from "./forms/InputField.svelte";
     
@@ -52,6 +52,6 @@
 
     <h2 data-anker="Derived Store">Derived Store</h2>
     <p>Derived Stores beziehen sich auf Daten aus einem anderen Store</p>
-    <p> <strong >    Noch {$daysToHoliday} Tage bis zu meinem Urlaub</strong> </p>
+    <p>     Noch <strong >{$endOfYear}</strong> bis zum Ende des Jahres </p>
         
     
