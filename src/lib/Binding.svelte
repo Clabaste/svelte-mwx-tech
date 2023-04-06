@@ -34,8 +34,8 @@ const compParentCode = `    <InputField
         bind:this={inputFieldBound}>
     </InputField>`
 
-let inputValue = 'Fooo'
-let inputValueUnbound = 'Bar'
+let inputValue = 'urfs'
+let inputValueUnbound = 'BaTSSSSr'
 let boundCB = false
 let unboundCB = false
 
@@ -69,15 +69,16 @@ const slotHover = () => {
 
 <Ankerlinks></Ankerlinks>
 <h1>Binding</h1>
-<p>Bindings sind ein weites Feld, wer mehr wisen möchte schaut sich <a href="https://svelte.dev/tutorial/text-inputs">diese Beispiele</a> an</p>
-<p>Generelle gilt: Der Datenfluss geht in svelte vom oben nach unten (parent to child) –
+<p>Wer sich ausführlich über Data-Binding informieren möchte, schaut sich am besten <a href="https://svelte.dev/tutorial/text-inputs">diese Beispiele</a> an.</p>
+<p>Grundsätzlich gilt: Der Datenfluss geht in svelte vom oben nach unten (parent to child) –
     diese Regel wird allerding für eine einfachere Benutzbarkeit an einigen Stellen gebrochen.</p>
-<p>Konkret gilt das vor allem für Formularelemente – hier kann man den Wert mit "bind:value" in beide Richtungen binden (doublebinding) </p>
+<p>
+    Eine typische Anwendung des sogenannten "Doublebinding" findet man bei 
+    Formularelementen. Hier kann man den Wert mit "bind:value" in beide Richtungen binden</p>
 
 <h2 data-anker="Eingabefelder und Textareas">Eingabefelder und Textareas</h2>
 <div class="flex">
     <div>
-
         <InputField labelName="Gebundener Wert: {inputValue}" bind:value={inputValue}></InputField>
     </div>
     <div>
@@ -269,19 +270,3 @@ const slotHover = () => {
         <pre> // Code in der Child-Komponente<br>{compBindCode}</pre></div>
 </div>
 
-
-
-<h2 data-anker="Slots">Slots</h2>
-<SlotComponent let:hovering={isHovered}>
-    <h3 slot="headline" class:hovered={isHovered}>Headline</h3>
-    <p>Schubiduuuu, irgendein Content.. </p>
-</SlotComponent>
-
-<style lang="scss">
-    h3 {
-        &.hovered {
-            background-color: darkcyan;
-            color: #FFF
-        }
-    }
-</style>

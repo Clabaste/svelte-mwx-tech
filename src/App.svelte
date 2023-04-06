@@ -12,6 +12,7 @@
   import Stores from "./lib/Stores.svelte";
     import Directives from './lib/Directives.svelte';
     import Start from './lib/Start.svelte'
+    import Slots from './lib/Slots.svelte'
 
   onMount(() => {
     onRouteChange();
@@ -75,6 +76,11 @@
         path: '/binding',
         name: 'Binding',
         component: Binding
+    },
+    {
+        path: '/slots',
+        name: 'Slots',
+        component: Slots
     },
     {
         path: '/events',
@@ -164,7 +170,11 @@
         font-size: 20px;
         color: #FFF;
         border-bottom: 1px dashed #FFF;
-        
+        margin-bottom: 2px;
+        &--active,&:hover, &:focus {
+          border-width: 3px;
+          margin-bottom: 0;
+        }
 
       }
   }
