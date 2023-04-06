@@ -57,7 +57,7 @@
 
   let promise = getImageList();
 </script>
-<Ankerlinks></Ankerlinks>
+
 <h1>Anweisungen</h1>
 <h2 data-anker="if">if/else</h2>
 <p>In svelte können logische Anweisungen im HTML-Template ausgeführt werden:</p>

@@ -49,7 +49,7 @@
     let promise = getStarWarsData('https://www.swapi.tech/api/people?page=1&limit=3')
     let promise2 = getStarWarsData('https://www.swapi.tech/api/people?page=2&limit=3')
 </script>
-<Ankerlinks></Ankerlinks>
+
 <h2 data-anker="Properties">Properties</h2>
 <p>Natürlich kann man wie in allen anderen bekannten Framework mittels "Properties" Daten und Informationen an die Childkomponente übermitteln</p>
 <p>Mehr Info hier im  <a href="https://svelte.dev/tutorial/declaring-props">Tutorial</a></p>

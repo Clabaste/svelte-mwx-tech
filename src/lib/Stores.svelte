@@ -25,7 +25,7 @@
     }
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
 </script>
-<Ankerlinks></Ankerlinks>
+
 <h1>Stores</h1>
 <p>Mithilfe von Stores werden in der Regel Daten gespeichert, die über mehrere voneinander 
     unabhängige Komponenten oder Seiten benutzt werden werden.</p>

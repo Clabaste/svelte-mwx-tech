@@ -34,8 +34,8 @@ const compParentCode = `    <InputField
         bind:this={inputFieldBound}>
     </InputField>`
 
-let inputValue = 'urfs'
-let inputValueUnbound = 'BaTSSSSr'
+let inputValue = 'FOO'
+let inputValueUnbound = 'BAR'
 let boundCB = false
 let unboundCB = false
 
@@ -67,7 +67,7 @@ const slotHover = () => {
 </script>
 
 
-<Ankerlinks></Ankerlinks>
+
 <h1>Binding</h1>
 <p>Wer sich ausführlich über Data-Binding informieren möchte, schaut sich am besten <a href="https://svelte.dev/tutorial/text-inputs">diese Beispiele</a> an.</p>
 <p>Grundsätzlich gilt: Der Datenfluss geht in svelte vom oben nach unten (parent to child) –

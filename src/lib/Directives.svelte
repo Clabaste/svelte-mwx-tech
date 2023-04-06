@@ -5,7 +5,6 @@
     let duration = 1000
     let animalBound
 </script>
-<Ankerlinks></Ankerlinks>
 <h1>Direktiven</h1>
 
 <h2 data-anker="use">Die "Use" Direktive (Actions)</h2>

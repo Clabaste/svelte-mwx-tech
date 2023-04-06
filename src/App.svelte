@@ -1,38 +1,26 @@
 <script>
+  import { onMount, afterUpdate, tick } from 'svelte';
+
 // @ts-nocheck
 
   import Counter from './lib/Reactivity.svelte'
   import theme from './stores/theme.js'
   
-  import {onMount} from "svelte";
   import Logic from "./lib/Logic.svelte";
   import Events from "./lib/Events.svelte";
   import Binding from "./lib/Binding.svelte";
   import Data from "./lib/Data.svelte";
   import Stores from "./lib/Stores.svelte";
-    import Directives from './lib/Directives.svelte';
-    import Start from './lib/Start.svelte'
-    import Slots from './lib/Slots.svelte'
-
-  onMount(() => {
-    onRouteChange();
-  });
+  import Directives from './lib/Directives.svelte';
+  import Start from './lib/Start.svelte'
+  import Slots from './lib/Slots.svelte'
+  import Ankerlinks from './lib/navis/Ankerlinks.svelte'
 
   
+  
   let page = window.location.hash.slice(1)
-  let pathComponent = Start
-  let pathData = {}
-  const onRouteChange = () => {
-    page = window.location.hash.slice(1)
-    const selectedObj = routes.filter((route) => route.path === page)[0]
-    if(selectedObj) {
-      pathComponent = selectedObj.component
-      pathData = selectedObj.data
-    }else {
-      pathComponent = Start
-      pathData = {}
-    }
-  };
+  
+  
 
   const counterData = {
     numbersArray: [1, 2, 3, 4],
@@ -89,7 +77,7 @@
     },
     {
         path: '/data',
-        name: 'Props und andere Daten',
+        name: 'Data und Props',
         component: Data
     },
     {
@@ -103,8 +91,32 @@
         component: Directives
     },
 ]
+  let  ankers = [...document.querySelectorAll('[data-anker]')].map((anker) => anker.getAttribute("data-anker"));
+  const setAnkers = () => {
+    ankers = [...document.querySelectorAll('[data-anker]')].map((anker) => anker.getAttribute("data-anker"));
+  }
+  onMount(() => {
+    onRouteChange();
+    
+  });
+  afterUpdate(() => {
+    setAnkers()
+  })
+  let pathComponent = Start
+  let pathData = {}
+  const onRouteChange = () => {
+    page = window.location.hash.slice(1)
+    const selectedObj = routes.filter((route) => route.path === page)[0]
+    if(selectedObj) {
+      pathComponent = selectedObj.component;
+      pathData = selectedObj.data
+    }else {
+      pathComponent = Start
+      pathData = {}
+    }
+  }  
 </script>
-<svelte:window on:hashchange={onRouteChange} />
+<svelte:window on:load={setAnkers} on:hashchange={onRouteChange} />
 
 <svelte:head>
   {#if $theme === 'dark'}
@@ -138,18 +150,19 @@
     {/each} 
   </ul>
 </nav> 
-
-{#if page === '/events'}
-    <svelte:component this={pathComponent}   on:blur={eventForward}/>
-  {:else }  
-    <svelte:component this={pathComponent} {...pathData}/>
-{/if}
-
-
+<Ankerlinks {ankers}></Ankerlinks>
+<main>
+  {#if page === '/events'}
+      <svelte:component this={pathComponent}  on:blur={eventForward}/>
+    {:else }  
+      <svelte:component this={pathComponent} {...pathData}/>
+  {/if}
+</main>
 
 
 
 <style lang="scss">
+  
   .mainnavi {
     position: sticky;
     z-index: $navIndex;

@@ -31,7 +31,7 @@ const forwardCodeEvent = ` <InputField
 </script>
 
 
-<Ankerlinks></Ankerlinks>
+
 <h1>Events</h1>
 <h2 data-anker="Einfache Events">Events von HTML-Elementen</h2>
 <p>Events werden mithilfe von "on:" plus dem gewünschten Event gesetzt</p>
