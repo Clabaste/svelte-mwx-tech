@@ -96,5 +96,13 @@ const forwardCodeEvent = ` <InputField
 
     </div>
 </div>
+<h2 data-anker="Lifeceycle Events">Lifeceycle Events</h2>
+Das Konzept ist bekannt, es gibt folgende Events, mehr Info im <a href="https://svelte.dev/tutorial/onmount">offiziellen Tutorial</a> 
+<ul>
+    <li>onMount</li>
+    <li>onDestroy</li>
+    <li>beforeUpdate</li>
+    <li>afterUpdate</li>
+</ul>
 
 
