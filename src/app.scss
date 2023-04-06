@@ -73,6 +73,11 @@ hr {
   color: $alertC
 }
 
+a {
+  color: var(--color);
+  border-bottom: 1px dashed var(--color);
+}
+
 .flex {
   display: flex;gap: $gridV;
   > * {
