@@ -1,5 +1,6 @@
 import { derived } from 'svelte/store';
 import {time} from './time'
+
 export const endOfYear = derived(
 	time,
 	($time) => {

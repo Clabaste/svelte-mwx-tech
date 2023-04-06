@@ -1,6 +1,6 @@
 <script>
-  export let numbersArray = [1, 2, 3, 4];
-  export let singleNumber = 0
+  let numbersArray = [1, 2, 3, 4];
+  let singleNumber = 0
 
   function updateArray() {
     // Show: push won't work: Array.push adds an element to the end of the existing array while the spread syntax creates an entirely new array.

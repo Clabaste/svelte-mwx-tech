@@ -153,7 +153,7 @@
 <Ankerlinks {ankers}></Ankerlinks>
 <main>
   {#if page === '/events'}
-      <svelte:component this={pathComponent}  on:blur={eventForward}/>
+      <Events on:blur={eventForward}></Events> 
     {:else }  
       <svelte:component this={pathComponent} {...pathData}/>
   {/if}

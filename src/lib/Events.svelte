@@ -56,7 +56,12 @@ const forwardCodeEvent = ` <InputField
 </p>
 
 <div class="flex">
-    <div><InputField labelName="Beispiel" on:input={(e) => console.info('on input', e.detail)}></InputField></div>
+    <div>
+        <InputField 
+            labelName="Beispiel" 
+            on:input={(e) => console.info('on input', e.detail)}>
+        </InputField>
+    </div>
     <div><pre>{dispatchCode}</pre></div>
 
 </div>

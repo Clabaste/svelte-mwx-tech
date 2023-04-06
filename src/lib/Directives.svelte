@@ -1,6 +1,6 @@
 <script>
     import longpress from '../actions/longpress'
-    import Ankerlinks from "./navis/Ankerlinks.svelte";
+
     
     let duration = 1000
     let animalBound
@@ -85,13 +85,13 @@
 
     <h2 data-anker="Svelte eigene Tags">Svelte eigene Tags</h2>
     <p>Es gibt einen Debug Tag</p>
-<!--     {@debug animalBound} -->
+    <!-- {@debug animalBound} -->
     <p>Man kann im Templatebereich eine Konsole ausgeben, wenn man möchte</p>
     {(console.log(animalBound), '')}
 
     <p>HTML als string mit "@html string"</p>
     {#if animalBound}
-        {@const lala = '<p><strong>Test</strong></p>'}
+        {@const lala = `Tier ist <strong>${animalBound}</strong>`}
         <div>{@html lala}</div>
     {/if}
     

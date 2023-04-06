@@ -105,7 +105,7 @@
 <p>Wenn ich jetzt das erste Element lösche, wird zwar das Array upgedated und es sieht auf den ersten Blick alles fein aus – aber die <code>&lt;Emoji&gt;</code>-Komponente zeigt nicht mehr
 das richtige Icon an.</p>
 <p>Hintergrund: Es wird nicht die erste <code>&lt;Emoji&gt;</code>-Komponente entfernt, sondern der letzte DOM-Knoten.
-  Dann wird der Namenswert in den verbleibenden DOM-Knoten aktualisiert, aber nicht das Emoji.</p>
+  Dann wird der Namenswert und die Imagesource in den verbleibenden DOM-Knoten aktualisiert, aber nicht das Emoji.</p>
 <p>Hier in der rechten Liste habe ich das mit dem `name` gelöst, in der Regel nimmt man dafür eine ID</p>
 
 <button on:click={removeFirstItem}>Lösch den ersten Eintrag im Array</button>

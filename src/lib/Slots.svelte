@@ -10,8 +10,13 @@
     <p>Schubiduuuu, irgendein Content.. </p>
 </SlotComponent>
 
+<SlotComponent let:hovering={lala}>
+    <h1 slot="headline" class:hovered={lala}>WÄÄÄÄ</h1>
+    <p>Schubiduuuu, irgendein Content.. </p>
+</SlotComponent>
+
 <style lang="scss">
-    h3 {
+    h3, h1 {
         &.hovered {
             background-color: darkcyan;
             color: #FFF

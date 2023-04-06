@@ -17,7 +17,7 @@
     Script, HTML-Template und Styles sind in der selben Datei und es gibt die Möglichkeit, über Slots
     den inneren Content zu kontrollieren.
 </p>
-<h2>Uterschiede zu anderen Frameworks</h2>
+<h2>Unterschiede zu anderen Frameworks</h2>
 <ul>
     <li>
         Build-Prozess: Svelte liefert keine Runtime aus, sondern ist ein Compiler. (Weniger Overhead). <br>
@@ -28,7 +28,7 @@
 <h2>Nicht neu, aber sehr gut gemacht</h2>
 <p>
     Jedes neue Framwork baut ja auf den Fehlern, bzw. Erkenntnissen während der Benutzung der älteren
-    Lösungen auf. So hat auch Svelte sich viel von den Anderen genommen udn für den Entwickler vereinfacht
+    Lösungen auf. So hat auch Svelte sich viel von den Anderen genommen und für den Entwickler vereinfacht.
 </p>
 <ul>
     <li>

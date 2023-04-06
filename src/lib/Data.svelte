@@ -58,9 +58,9 @@
 {:then peoples}
     <div class="flex">
         <ul class="image-list">
-            {#each peoples as { person }, i (person.uid)}
+            {#each peoples as person, i (person.uid)}
                 <li>
-                    <DataChild {...person}></DataChild>
+                    <DataChild {person}></DataChild>
                 </li>
             {/each}
         </ul>
