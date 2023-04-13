@@ -27,26 +27,28 @@
     border-top: 5px solid #FFF;
     position: sticky;
     z-index: $navIndex;
-    top: 50px;
+    top: 40px;
     left: -16px;
     background-color: var(--ankerbg);
   }
     button {
-        margin: 4px $gridH;
+        margin: 4px 0;
       padding: 0;
-
       color: #FFF;
       border-bottom: 1px dashed #FFF;
       background: transparent;
       border-radius: 0;
+      font-size: 12px;
     }
     .ankerlist {
       margin: 0;
+      padding: 0 20px;
       list-style: none;
       display: flex;
+      gap: 12px;
       flex-wrap: wrap;
       li {
-        padding: calc($gridV / 2) 0;
+        padding: calc($gridV / 12) 0 calc($gridV / 6) 0;
         white-space: nowrap;
       }
     }

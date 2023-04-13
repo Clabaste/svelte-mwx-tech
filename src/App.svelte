@@ -15,6 +15,7 @@
   import Start from './lib/Start.svelte'
   import Slots from './lib/Slots.svelte'
   import Ankerlinks from './lib/navis/Ankerlinks.svelte'
+    import SvelteQuery from './lib/SvelteQuery.svelte';
 
   
   
@@ -90,6 +91,11 @@
         name: 'Direktiven und Specials',
         component: Directives
     },
+    {
+        path: '/svelteQuery',
+        name: 'Svelte Query',
+        component: SvelteQuery
+    }
 ]
   let  ankers = [...document.querySelectorAll('[data-anker]')].map((anker) => anker.getAttribute("data-anker"));
   const setAnkers = () => {
@@ -180,7 +186,7 @@
     }
     &__list-link {
         display: block;
-        font-size: 20px;
+        font-size: 16px;
         color: #FFF;
         border-bottom: 1px dashed #FFF;
         margin-bottom: 2px;
