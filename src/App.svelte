@@ -15,7 +15,7 @@
   import Start from './lib/Start.svelte'
   import Slots from './lib/Slots.svelte'
   import Ankerlinks from './lib/navis/Ankerlinks.svelte'
-    import SvelteQuery from './lib/SvelteQuery.svelte';
+    import HeySRTryouts from './lib/HeySRTryouts.svelte';
 
   
   
@@ -92,9 +92,9 @@
         component: Directives
     },
     {
-        path: '/svelteQuery',
-        name: 'Svelte Query',
-        component: SvelteQuery
+        path: '/heySRTryouts',
+        name: 'HeySR Tryouts',
+        component: HeySRTryouts
     }
 ]
   let  ankers = [...document.querySelectorAll('[data-anker]')].map((anker) => anker.getAttribute("data-anker"));
